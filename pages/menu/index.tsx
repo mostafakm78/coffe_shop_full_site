@@ -1,7 +1,8 @@
 import Card from '@/components/shared/Card';
 import Header from '@/components/shared/Header';
+import { JSX } from 'react';
 
-export default function MenuPage({ data }) {
+export default function MenuPage({ data }: any) {
   return (
     <>
       <Header title="محصولات" />
@@ -16,19 +17,39 @@ export default function MenuPage({ data }) {
               <h1 className="mb-5">نوشیدنی داغ</h1>
               <div className="row align-items-center mb-5">
                 {data.menu
-                  ?.filter((item) => item.type === 'hot')
-                  .map((item) => (
-                    <Card key={item.id} {...item} />
-                  ))}
+                  ?.filter((item: { type: string }) => item.type === 'hot')
+                  .map(
+                    (
+                      item: JSX.IntrinsicAttributes & {
+                        title: string;
+                        img: string;
+                        desc: string;
+                        price: number;
+                        id: string | number;
+                      }
+                    ) => (
+                      <Card key={item.id} {...item} />
+                    )
+                  )}
               </div>
             </div>
             <div className="col-lg-6">
               <h1 className="mb-5">نوشیدنی های سرد</h1>
               {data.menu
-                ?.filter((item) => item.type === 'cold')
-                .map((item) => (
-                  <Card key={item.id} {...item} />
-                ))}
+                ?.filter((item: { type: string }) => item.type === 'cold')
+                .map(
+                  (
+                    item: JSX.IntrinsicAttributes & {
+                      title: string;
+                      img: string;
+                      desc: string;
+                      price: number;
+                      id: string | number;
+                    }
+                  ) => (
+                    <Card key={item.id} {...item} />
+                  )
+                )}
             </div>
           </div>
         </div>

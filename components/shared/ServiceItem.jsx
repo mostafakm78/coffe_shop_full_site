@@ -4,14 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as icons from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
-interface ServiceItemProps {
-  title: string;
-  desc: string;
-  img: string;
-  icon?: string;
-}
-
-function ServiceItem({ title, desc, img, icon }: ServiceItemProps) {
+function ServiceItem({ title, desc, img, icon }) {
   return (
     <div className="col-lg-6 mb-5">
       <div className="row align-items-center">

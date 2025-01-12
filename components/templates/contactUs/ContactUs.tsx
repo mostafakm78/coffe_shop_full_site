@@ -12,7 +12,7 @@ function ContactDetails() {
   const [subject, setSubject] = useState('');
   const [body, setBody] = useState('');
 
-  const addMessage = async (event) => {
+  const addMessage = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     const message = {
@@ -80,16 +80,16 @@ function ContactDetails() {
             <iframe
               style={{ width: '100%', height: '443px' }}
               src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=milad tower&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-              frameborder="0"
-              allowfullscreen=""
+              frameBorder="0"
+              allowFullScreen={false}
               aria-hidden="false"
-              tabindex="0"
+              tabIndex={0}
             ></iframe>
           </div>
           <div className="col-md-6 pb-5">
             <div className="contact-form">
               <div id="success"></div>
-              <form name="sentMessage" id="contactForm" novalidate="novalidate">
+              <form name="sentMessage" id="contactForm" noValidate={false}>
                 <div className="control-group">
                   <input
                     value={username}
@@ -98,7 +98,7 @@ function ContactDetails() {
                     className="form-control bg-transparent p-4"
                     id="name"
                     placeholder="نام کامل"
-                    required="required"
+                    required={true}
                     data-validation-required-message="Please enter your name"
                   />
                   <p className="help-block text-danger"></p>
@@ -111,7 +111,7 @@ function ContactDetails() {
                     className="form-control bg-transparent p-4"
                     id="email"
                     placeholder="ایمیل"
-                    required="required"
+                    required={true}
                     data-validation-required-message="Please enter your email"
                   />
                   <p className="help-block text-danger"></p>
@@ -124,7 +124,7 @@ function ContactDetails() {
                     className="form-control bg-transparent p-4"
                     id="subject"
                     placeholder="موضوع"
-                    required="required"
+                    required={true}
                     data-validation-required-message="Please enter a subject"
                   />
                   <p className="help-block text-danger"></p>
@@ -134,10 +134,10 @@ function ContactDetails() {
                     value={body}
                     onChange={(event) => setBody(event.target.value)}
                     className="form-control bg-transparent py-3 px-4"
-                    rows="5"
+                    rows={5}
                     id="message"
                     placeholder="پیام شما"
-                    required="required"
+                    required={true}
                     data-validation-required-message="Please enter your message"
                   ></textarea>
                   <p className="help-block text-danger"></p>

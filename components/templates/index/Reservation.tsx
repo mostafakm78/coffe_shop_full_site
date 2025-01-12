@@ -13,7 +13,7 @@ export default function Reservation() {
   const [time, setTime] = useState('');
   const [option, setOption] = useState('0');
 
-  const addReservHandler = async (event) => {
+  const addReservHandler = async (event: { preventDefault: () => void; }) => {
     event.preventDefault();
 
     const res = await fetch('http://localhost:5000/reserv', {

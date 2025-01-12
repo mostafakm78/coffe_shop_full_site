@@ -4,9 +4,9 @@ import Offer from '@/components/templates/index/Offer';
 import Reservation from '@/components/templates/index/Reservation';
 import Services from '@/components/templates/index/Services';
 import Slider from '@/components/templates/index/Slider';
-import { GetStaticProps } from 'next';
 
-export default function Home({ data }: GetStaticProps) {
+
+export default function Home({ data }: any) {
   return (
     <>
       <Slider />

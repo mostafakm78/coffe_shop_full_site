@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 export default function Offer() {
   const [email, setEmail] = useState('');
 
-  const addEmail = async (event) => {
+  const addEmail = async (event: { preventDefault: () => void; }) => {
     event.preventDefault();
 
     const res = await fetch('http://localhost:5000/newsLetters', {

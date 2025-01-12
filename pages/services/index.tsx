@@ -1,7 +1,7 @@
 import Header from '@/components/shared/Header';
 import Services from '@/components/templates/index/Services';
 
-export default function ServicesPage({ data }) {
+export default function ServicesPage({ data } : any) {
   return (
     <>
       <Header title="سرویس ها" />

@@ -1,9 +1,10 @@
 import Card from '@/components/shared/Card';
+import { JSX } from 'react';
 
-export default function Result({ searchResult }) {
-  const renderProducts = (type, title) => {
+export default function Result({ searchResult }: any) {
+  const renderProducts = (type: any, title: any) => {
     const filteredProducts = searchResult
-      ?.filter((item) => item.type === type)
+      ?.filter((item: { type: any }) => item.type === type)
       .slice(0, 3);
 
     return (
@@ -11,7 +12,17 @@ export default function Result({ searchResult }) {
         <h1 className="mb-5">{title}</h1>
         <div className="row align-items-center mb-5">
           {filteredProducts.length > 0 ? (
-            filteredProducts.map((item) => <Card key={item.id} {...item} />)
+            filteredProducts.map(
+              (
+                item: JSX.IntrinsicAttributes & {
+                  title: string;
+                  img: string;
+                  desc: string;
+                  price: number;
+                  id: string | number;
+                }
+              ) => <Card key={item.id} {...item} />
+            )
           ) : (
             <p>محصولی برای نمایش وجود ندارد.</p>
           )}

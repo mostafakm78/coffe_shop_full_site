@@ -1,6 +1,14 @@
 import Link from "next/link";
 
-export default function Card({ title, img, desc, price , id }) {
+type CardProps = {
+    title: string;
+    img: string;
+    desc: string;
+    price: number;
+    id: string | number;
+  };
+
+export default function Card({ title, img, desc, price , id } : CardProps) {
   return (
     <div className="row align-items-center mb-5">
       <div className="col-4 col-sm-3">

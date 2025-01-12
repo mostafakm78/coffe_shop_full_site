@@ -9,9 +9,13 @@ export default function Navbar() {
   const router = useRouter();
   const [search, setSearch] = useState('');
 
-  useEffect(() => setSearch(router.query.q), []);
+  useEffect(() => {
+    setSearch((router.query.q as string) || '');
+  }, [router.query.q]);
 
-  const searchHandlerWithEnter = (event) => {
+  const searchHandlerWithEnter = (
+    event: React.KeyboardEvent<HTMLInputElement>
+  ) => {
     if (event.code === 'Enter') {
       if (search.trim()) {
         router.push(`/search?q=${search}`);
@@ -25,7 +29,7 @@ export default function Navbar() {
     }
   };
 
-  const isActive = (path) => router.pathname === path;
+  const isActive = (path: string) => router.pathname === path;
 
   return (
     <div className={`container-fluid p-0 ${styles.nav_bar}`}>
